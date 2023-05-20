@@ -1,0 +1,217 @@
+:root {
+  --main-color: #002FA9; /* Color Azul Caracteristico de la unerg */
+  --text-color-light: #FFF; /*Color blanco para aplicar al texto*/
+  --text-color-dark: #000; /*Color negro para aplicar al texto*/
+  --bg-color-gray: #EEE; /*Color de fondo gris claro*/
+  --bg-color-light: #FFF; /*Color blanco para aplicar al fondo*/
+
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+body{
+	background-color: var(--bg-color-gray);
+}
+
+nav{
+	display: flex;
+	width: 100%;
+	background: var(--main-color);
+	position: fixed;
+	justify-content: space-between;
+	text-align: center;
+	padding: 15px 30px;
+}
+
+nav .icon{
+	font-size: 28px;
+	font-weight: 700;
+	color: var(--text-color-light);
+	cursor: pointer;
+}
+
+nav ul{
+	display: flex;
+	list-style: none;
+	margin: auto 0;
+}
+
+nav ul li{
+	margin: 0 2px;
+}
+
+nav ul li a{
+	color: var(--text-color-light);
+	font-size: 18px;
+	text-decoration: none;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+	padding: 5px 10px;
+}
+
+nav ul li:hover a{
+	background: var(--bg-color-gray);
+	color: var(--main-color);
+	transition: 0.3s;
+}
+
+nav .search-box{
+	display: flex;
+	margin: auto 0;
+	height: 35px;
+	line-height: 35px;
+}
+
+nav .search-box input{
+	border: none;
+	outline: none;
+	background: var(--bg-color-light);
+	height: 100%;
+	padding: 0 10px;
+	font-size: 18px;
+	width: 200px;
+}
+
+nav .search-box span{
+	color: var(--main-color);
+	font-size: 18px;
+	background-color: var(--bg-color-light);
+	height: 100%;
+	padding: 8px;
+	position: relative;
+	cursor: pointer;
+	z-index: 1;
+}
+nav .search-box span:hover{
+	color: var(--text-color-dark);
+}
+nav .search-box span::after{
+	height: 100%;
+	width: 0%;
+	content: '';
+	background-color: var(--bg-color-gray);
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: -1;
+	transition: 0.3s;
+}
+
+nav .search-box span:hover::after{
+	width: 100%;
+}
+
+nav .bar{
+	position: relative;
+	margin: auto;
+	display: none;
+}
+
+nav .bar span{
+	position: absolute;
+	color: var(--text-color-light);
+	font-size: 35px;
+}
+
+input[type="checkbox"]{
+	-webkit-appearance: none;
+	display: block;
+	right: 0;
+}
+
+
+.pdfview{
+	margin: auto;
+	margin-top: 18vh;
+	margin-bottom: 8vh;
+	display: block;
+	width: 80%;
+	height: 80vh;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media screen and (max-width: 1023px){
+	.pdfview{
+		margin-top: 20vh;
+		width: 90%;
+		height: 70vh;
+	}
+	nav{
+		display: block;
+		padding:  0;
+	}
+	nav .icon{
+		display: inline-block;
+		padding: 15px 30px;
+	}
+	nav .search-box{
+		width: 100%;
+		display: inline-flex;
+		justify-content: center;
+		margin-bottom: 15px;
+	}
+	nav .search-box input{
+		width: 90%;
+	}
+	nav ul{
+		display: flex;
+		flex-direction: column;
+		background: var(--bg-color-light);
+		height: 0;
+		visibility: hidden;
+	}
+
+	nav ul li{
+		text-align: center;
+
+	}
+
+	nav ul li a{
+		color: var(--text-color-dark);
+		font-size: 28px;
+		padding: 25px;
+		display: block;
+	}
+
+	nav .bar{
+		display: block;
+		position: absolute;
+		top: 20px;
+		right: 80px;
+		cursor: pointer;
+
+	}
+	nav .bar #times{
+		display: none;
+	}
+
+	#check:checked ~ nav .bar #times{
+		display: block;
+	}
+
+	#check:checked ~ nav .bar #bars{
+		display: none;
+	}
+
+	#check:checked ~ nav ul{
+		visibility: visible;
+		height: 340px;
+	}
+
+}
+.fondo{
+	background: url(fondo.jpg);
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	background-position: center;
+	background-size: cover;
+	filter: brightness(30%);
+	top: 0;
+	z-index: -1;
+}
